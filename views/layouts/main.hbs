@@ -11,15 +11,24 @@
 
 <body>
     {{> _header}}
+    {{> _add_btn}}
     <div class="container">
         {{{body}}}
     </div>
     
-
+    {{!-- Materialize library --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    {{!-- CK Editor: WYSIWYG editor --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.25.0/ckeditor.js" integrity="sha512-BmPSKm+8FYKMlrIpuWJqTRPMPDI+2Ea55rS3g4EVP+Grh2GaP1e9MFjUNOLPasnOfq6puWIlqmAFllMxuE52Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
         M.Sidenav.init(document.querySelector('.sidenav'))
+        M.FormSelect.init(document.querySelector('#status'))
+
+        CKEDITOR.replace('body', {
+            plugins: 'wysiwygarea, toolbar, basicstyles, link'
+        })
     </script>
 </body>
 </html>

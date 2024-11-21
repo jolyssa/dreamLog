@@ -21,6 +21,10 @@ connectDB()
 // App set to express()
 const app = express()
 
+// Body parser middleware
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+
 //Logging
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'))
@@ -53,6 +57,7 @@ const PORT = process.env.PORT || 3000
 // Routes
 app.use('/', require('./routes/index'))
 app.use('/auth', require('./routes/auth'))
+app.use('/stories', require('./routes/stories'))
 
 // Listening for our PORT
 app.listen(
