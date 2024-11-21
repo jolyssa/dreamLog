@@ -15,10 +15,10 @@ const UserSchema = new mongoose.Schema({
     },
     lastName: {
         type: String,
-        required: true
+        required: false
     },
     image: {
-        type: String,
+        type: String
     },
     createdAt: {
         type: Date,
