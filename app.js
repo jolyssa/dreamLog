@@ -1,39 +1,44 @@
 const path = require('path')
 const express = require('express')
+const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const morgan = require('morgan')
 const exphbs = require('express-handlebars')
 const passport = require('passport')
 const session = require('express-session')
+const MongoStore = require('connect-mongo')
 const connectDB = require('./config/db')
 
 //Load config file
-dotenv.config({ path: './config/config.env'})
+dotenv.config({ path: './config/config.env' })
 
 // Passport config
 require('./config/passport')(passport)
 
 // Connect to our database
-connectDB()
+connectDB() 
 
 // App set to express()
 const app = express()
 
 //Logging
-if (process.env.NODE_ENV === 'development'){
+if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'))
 }
 
 // Template engine - Handlebars
-app.engine('.hbs', exphbs.engine({defaultLayout: 'main', extname: '.hbs'}))
+app.engine('.hbs', exphbs.engine({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', '.hbs')
 
 // Sessions
-app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: false
-  }))
+app.use(
+    session({
+        secret: 'keyboard cat',
+        resave: false,
+        saveUninitialized: false,
+        store: MongoStore.create({ mongoUrl: process.env.MONGO_URI })
+    })
+)
 
 // Passport middleware
 app.use(passport.initialize())
