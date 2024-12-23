@@ -2,6 +2,8 @@
 
 **DreamLog** is a full-stack web application that allows users to log and manage their dreams. Users can create, edit, delete, and view their personal dream logs while also exploring public entries from other users for inspiration or entertainment.
 
+###### See it live here: https://dreamlog.onrender.com/
+
 ## **Features**
 
 * **User Authentication:** Secure login and registration using Google OAuth 2.0.
