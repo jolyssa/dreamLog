@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 p {
     margin: 10px 0 !important;
 }
@@ -17,6 +21,40 @@ p {
     margin-right: 10px;
 }
 
-.img-slmall {
+.img-small {
     width: 180px;
 }
+
+.poppins {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .pattaya {
+    font-family: "Pattaya", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .circle {
+    border-radius: 50%;
+    border: 1px solid grey;
+    padding: 10px;
+  }
+
+  .stars {
+    background-image: url('/img/night sky.jpg');
+    background-size: cover;
+    height: 30vh;
+    width: 30vh;
+    margin: 0 auto;
+    border-radius: 50%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border: 5px solid green;
+  }
+
+  .center {
+    text-align: center;
+  }

@@ -1,6 +1,8 @@
-<h6>Dashboard</h6>
-<h3>Welcome back {{name}}! </h3>
-<p>Here are your stories:</p>
+<div style="">
+    <div class="stars"></div>
+</div>
+<h3 class="center">Welcome back, {{name}}! </h3>
+<h5 class="center" style="margin-bottom: 30px;">Here are your dream logs:</h5>
 
 {{#if stories}}
     <table class="striped">
@@ -19,13 +21,13 @@
                     <td>{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss a'}}</td>
                     <td><span class="dash-status">{{status}}</span></td>
                     <td>
-                        <a href="/stories/edit/{{_id}}" class="btn btn-float">
+                        <a href="/stories/edit/{{_id}}" class="btn btn-float yellow darken-3" style="margin-bottom: 10px;">
                             <i class="fas fa-edit"></i>
                         </a>
 
                         <form action="/stories/{{_id}}" method="POST" id="delete-form">
                             <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn red">
+                            <button type="submit" class="btn red ">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </form>
